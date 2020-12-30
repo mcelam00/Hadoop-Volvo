@@ -1,5 +1,10 @@
 package inputCreator;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  * Class in charge of the creation of an input file following the specifications provided
  * @author mcelam00
@@ -14,12 +19,8 @@ public class InputCreator {
 		
 			System.out.println("Welcome to the Input creator, now, the generation of the input file will start, this could take some minutes");
 
-		
-			
-		
-	
-		
-		
+			InputCreator nuevo = new InputCreator();
+			nuevo.savePath();
 		
 	}
 	
@@ -31,8 +32,7 @@ public class InputCreator {
 		
 		final JFileChooser fc = new JFileChooser(); //dialog box creation
 		
-		
-		
+				
 		int returnVal = fc.showSaveDialog(null); //show it
 		
 		
