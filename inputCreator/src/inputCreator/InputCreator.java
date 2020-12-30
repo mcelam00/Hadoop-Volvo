@@ -191,7 +191,12 @@ public class InputCreator {
 		
 		String km = "";
 		
-		if(cars == 1) {
+		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		
+		if(error == 17) {
+			km = "---";
+		
+		}else if(cars == 1) {
 			int km1 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			int km2 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			
@@ -215,7 +220,12 @@ public class InputCreator {
 		
 		String hps = "";
 		
-		if(cars == 1) {
+		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		
+		if(error == 17) {
+			hps = "---";
+		
+		}else if(cars == 1) {
 			
 			int h1 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			int h2 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
@@ -332,8 +342,13 @@ public class InputCreator {
 	private void hybridRecord(PrintWriter pw) {
 
 		String type = "H";
-		
-		
+
+		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+
+		if(error == 17) {
+			type= "---";
+		} 
+				
 		//number of cars that this family unit (represented by this record) has
 		
 		int cars = (int) Math.floor(Math.random()*2); 	
