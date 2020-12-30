@@ -23,7 +23,9 @@ public class InputCreator {
 
 			InputCreator nuevo = new InputCreator();
 			nuevo.savePath();
-		
+			System.out.println("input file succesfully generated");
+
+			
 	}
 	
 	/**
@@ -243,9 +245,9 @@ public class InputCreator {
 		String monthS = "";
 		String date = "";
 		
-		year = (int) ((Math.random() * (2021 - 1990)) + 1990);;  //random number between 1990 and 2021 both inclusive 
+		year = (int) ((Math.random() * (2021 - 1990)) + 1990);  //random number between 1990 and 2021 both inclusive 
 		
-		month = (int) Math.floor(Math.random()*13);  //random number between 0 and 12
+		month = (int) Math.floor(Math.random()*12);  //random number between 0 and 11
 		
 		switch(month) { //depending on the random number one of the options will be chosen.
 		
