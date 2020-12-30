@@ -1,6 +1,8 @@
 package inputCreator;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -67,6 +69,7 @@ public class InputCreator {
 			if(respuestaBoton == 0) { //if the replace is wished
 				
 				//CALL TO THE FILEWRITTER
+				this.generateFile();
 				
 			}else { //abort
 				
@@ -77,6 +80,7 @@ public class InputCreator {
 		}else { //if it does not exist
 			
 			//CALL TO THE FILEWRITTER
+			this.generateFile();
 
 		}
 	
@@ -84,6 +88,57 @@ public class InputCreator {
 	}
 	
 		
+	private void generateFile() {
+		
+		FileWriter file = null; //Declaration of the FileWriter
+	
+	
+		try {
+			
+			PrintWriter pw;
+			
+			file = new FileWriter(filePath); //new FileWriter to which we give the file in which we want to write. (like the paper)
+			
+			pw = new PrintWriter(file); //new PrintWritter in order to write in the file (like a pencil)
+			
+			//pw.println(); // pw.print(); function used to print one line in the indicated pathfile
+			
+			/*BEGGINING OF THE PRINTING*/
+			
+			
+			
+			
+			
+					
+			
+			
+		}catch(Exception e) {
+			
+			/*Included to avoid exception traces*/
+			
+		}finally { /*Ensuring the correct close of the file*/
+			
+			try {
+				
+				if(null != file) {
+					
+					file.close();
+					
+				}
+				
+			}catch(Exception e2) {
+				
+				/*Included to avoid exception traces*/
+			
+			}
+		}
+			
+		JOptionPane.showMessageDialog(null, "The Input file has been correctly saved", "Input Creator v1",JOptionPane.INFORMATION_MESSAGE);
+		
+		
+	
+	
+	}
 	
 
 }
