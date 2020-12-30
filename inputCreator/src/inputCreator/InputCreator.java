@@ -108,10 +108,18 @@ public class InputCreator {
 			
 			/*BEGGINING OF THE PRINTING*/
 			
-			conventionaletElectricRecord(pw); 
-			pw.println();
-			hybridRecord(pw);
+			int i = 0;
 			
+			while (i < 50) {
+				conventionaletElectricRecord(pw); 
+				pw.println();
+				hybridRecord(pw);
+					if(i < 49) {
+						pw.println();
+					}
+						
+					i++;
+			}
 			
 			
 		}catch(Exception e) {
@@ -166,7 +174,7 @@ public class InputCreator {
 		
 		//number of cars that this family unit (represented by this record) has
 		
-		int cars = (int) ((Math.random() * (2 - 1)) + 1); //1 or 2 cars
+		int cars = (int) Math.floor(Math.random()*2);  //1 or 2 cars
 
 		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHps(cars)+"/"+randomKMs(cars));
 				
@@ -181,7 +189,7 @@ public class InputCreator {
 		
 		String km = "";
 		
-		if(cars == 2) {
+		if(cars == 1) {
 			int km1 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			int km2 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			
@@ -205,7 +213,7 @@ public class InputCreator {
 		
 		String hps = "";
 		
-		if(cars == 2) {
+		if(cars == 1) {
 			
 			int h1 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			int h2 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
@@ -326,7 +334,7 @@ public class InputCreator {
 		
 		//number of cars that this family unit (represented by this record) has
 		
-		int cars = (int) ((Math.random() * (2 - 1)) + 1);	
+		int cars = (int) Math.floor(Math.random()*2); 	
 		
 		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
 
@@ -344,7 +352,7 @@ public class InputCreator {
 		
 		String hps = "";
 		
-		if(cars == 2) {
+		if(cars == 1) {
 			
 			int h1 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			int h1_1 = (int) ((Math.random() * (100 - 6)) + 6);  //random number between 1 and 100
