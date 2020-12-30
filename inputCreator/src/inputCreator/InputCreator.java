@@ -111,12 +111,13 @@ public class InputCreator {
 			/*BEGGINING OF THE PRINTING*/
 			
 			int i = 0;
+			int iterations = 100;
 			
-			while (i < 50) {
+			while (i < 100) {
 				conventionaletElectricRecord(pw); 
 				pw.println();
 				hybridRecord(pw);
-					if(i < 49) {
+					if(i < (iterations-1)) {
 						pw.println();
 					}
 						
@@ -161,25 +162,55 @@ public class InputCreator {
 
 		String type = "";
 		
-		int num = (int) Math.floor(Math.random()*2);  //random number between 0 and 1
-		
-		switch(num) { //depending on the random number one of the options will be chosen.
-		
-			case 0:
-				type = "C"; //conventional car			
-				break;
-			case 1:
-				type = "E"; //electric car
-				break;
-						
-		}
 		
 		//number of cars that this family unit (represented by this record) has
 		
 		int cars = (int) Math.floor(Math.random()*2);  //1 or 2 cars
+		
+		
+		if(cars == 1) { /*it has 2CARS, so we need to take at random the 2 types*/
+			
+			String type1= "";
+			String type2= "";
+					
+			int num1 = (int) Math.floor(Math.random()*2);  
+			int num2 = (int) Math.floor(Math.random()*2);  
 
-		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHps(cars)+"/"+randomKMs(cars));
-				
+			if(num1 == 0) {
+				type1 = "C"; //conventional car	
+			}else {
+				type1 = "E"; //electric car
+			}
+			
+			if(num2 == 0) {
+				type2 = "C"; //conventional car	
+			}else {
+				type2 = "E"; //electric car
+			}
+			
+			
+			pw.print(randomCity()+"/"+type1+"+"+type2+"/"+randomDate(cars)+"/"+randomHps(cars)+"/"+randomKMs(cars));
+
+			
+		}else { /*ONLY ONE CAR*/
+						
+			int num = (int) Math.floor(Math.random()*2);  //random number between 0 and 1
+			
+			switch(num) { //depending on the random number one of the options will be chosen.
+			
+				case 0:
+					type = "C"; //conventional car			
+					break;
+				case 1:
+					type = "E"; //electric car
+					break;
+							
+			}
+			
+			
+	
+			pw.print(randomCity()+"/"+type+"/"+randomDate(cars)+"/"+randomHps(cars)+"/"+randomKMs(cars));
+		}	
 	}
 
 	/**
@@ -246,66 +277,122 @@ public class InputCreator {
 
 	/**
 	 * Method that generates a random date between January 1990 and January 2021
+	 * @param cars 
 	 */
 	
-	private String randomDate() {
+	private String randomDate(int cars) {
 
 		int year;
 		int month;
-		String monthS = "";
 		String date = "";
 		
-		year = (int) ((Math.random() * (2021 - 1990)) + 1990);  //random number between 1990 and 2021 both inclusive 
+		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
 		
-		month = (int) Math.floor(Math.random()*12);  //random number between 0 and 11
 		
-		switch(month) { //depending on the random number one of the options will be chosen.
+		if(error == 17) { //if there is a simulted error, the date record is null
+			date = "---";
 		
-			case 0:
-				monthS = "Jan";			
-				break;
-			case 1:
-				monthS = "Feb";
-				break;
-			case 2:
-				monthS = "Mar";
-				break;
-			case 3:
-				monthS = "Aprl";
-				break;
-			case 4:
-				monthS = "May";
-				break;
-			case 5:
-				monthS = "Jun";
-				break;
-			case 6:
-				monthS = "Jul";
-				break;
-			case 7:
-				monthS = "Aug";
-				break;
-			case 8:
-				monthS = "Sep";
-				break;
-			case 9:
-				monthS = "Oct";
-				break;
-			case 10:
-				monthS = "Nov";
-				break;
-			case 11:
-				monthS = "Dec";
-				break;
+		}else {
+			
+			
+			if(cars == 1) { //if there are 2 cars we need 2 dates
+				
+				/*car 1*/
+			
+				int year1 = (int) ((Math.random() * (2021 - 1990)) + 1990);  
+				
+				int month1 = (int) Math.floor(Math.random()*12);  
+				
+				/*car2*/
+				
+				int year2 = (int) ((Math.random() * (2021 - 1990)) + 1990);   
+				
+				int month2 = (int) Math.floor(Math.random()*12);  
+									
+				String mn1 = monthName(month1); //name of the month for car 1
+						
+				String mn2 = monthName(month2); //name of the month for car 2
+				
+				date = mn1+String.valueOf(year1)+"@"+mn2+String.valueOf(year2);
+				
+			
+			}else {
+			
+				/*just one car*/
+				year = (int) ((Math.random() * (2021 - 1990)) + 1990);  //random number between 1990 and 2021 both inclusive 
+				
+				month = (int) Math.floor(Math.random()*12);  //random number between 0 and 11
+		
+				date = monthName(month)+String.valueOf(year);
+		
+			
+			}
 		
 		}
-		
-		date = monthS+String.valueOf(year);
-		
 		
 		return date;
 	}
 
+	
+	
+	/**
+	 * Depending on the random number one of the options (month names) will be chosen.
+	 * @param num
+	 * @return
+	 */
+	
+	
+	private String monthName(int num) {
+		
+		String monthS = "";
+		
+		switch(num) { 
+		
+		case 0:
+			monthS = "Jan";			
+			break;
+		case 1:
+			monthS = "Feb";
+			break;
+		case 2:
+			monthS = "Mar";
+			break;
+		case 3:
+			monthS = "Aprl";
+			break;
+		case 4:
+			monthS = "May";
+			break;
+		case 5:
+			monthS = "Jun";
+			break;
+		case 6:
+			monthS = "Jul";
+			break;
+		case 7:
+			monthS = "Aug";
+			break;
+		case 8:
+			monthS = "Sep";
+			break;
+		case 9:
+			monthS = "Oct";
+			break;
+		case 10:
+			monthS = "Nov";
+			break;
+		case 11:
+			monthS = "Dec";
+			break;
+	
+	}
+		
+		return monthS;
+		
+	}
+	
+	
+	
 	/**
 	 * Method that generates a random city between Uppsala, Stockholm and Gothenburg
 	 * 
@@ -353,7 +440,7 @@ public class InputCreator {
 		
 		int cars = (int) Math.floor(Math.random()*2); 	
 		
-		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
+		pw.print(randomCity()+"/"+type+"+"+type+"/"+randomDate(cars)+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
 
 		
 	}
