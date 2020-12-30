@@ -222,7 +222,7 @@ public class InputCreator {
 		
 		String km = "";
 		
-		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
 		if(error == 17) {
 			km = "---";
@@ -251,7 +251,7 @@ public class InputCreator {
 		
 		String hps = "";
 		
-		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
 		if(error == 17) {
 			hps = "---";
@@ -286,7 +286,7 @@ public class InputCreator {
 		int month;
 		String date = "";
 		
-		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
 		
 		if(error == 17) { //if there is a simulted error, the date record is null
@@ -430,7 +430,7 @@ public class InputCreator {
 
 		String type = "H";
 
-		int error = (int) Math.floor(Math.random()*50); // if we get 17 out of 50 possible random numbers it simulates an error in the record. 
+		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 
 		if(error == 17) {
 			type= "---";
