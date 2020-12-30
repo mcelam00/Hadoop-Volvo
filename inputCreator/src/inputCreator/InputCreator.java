@@ -27,7 +27,7 @@ public class InputCreator {
 	}
 	
 	/**
-	 * Method that brings in a dialog for us to selct the path in which we want to save the input file
+	 * Method that brings in a dialog for us to select the path in which we want to save the input file
 	 **/
 	 
 	private void savePath() {
@@ -87,6 +87,9 @@ public class InputCreator {
 		
 	}
 	
+	/**
+	 * Method that writes the file itself, by using the previous stored path
+	 */
 		
 	private void generateFile() {
 		
@@ -105,11 +108,9 @@ public class InputCreator {
 			
 			/*BEGGINING OF THE PRINTING*/
 			
+			conventionaletElectricRecord(pw); 
+			hybridRecord(pw);
 			
-			
-			
-			
-					
 			
 			
 		}catch(Exception e) {
@@ -138,6 +139,120 @@ public class InputCreator {
 		
 	
 	
+	}
+
+	/**
+	 * Method that prints a record for electric/conventional car
+	 * @param pw PrintWritter to write in the file
+	 */
+
+	private void conventionaletElectricRecord(PrintWriter pw) {
+
+		String type = "";
+		
+		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHps()+"/"+randomKMs());
+		
+		
+		
+	}
+
+	/**
+	 * Method that generates a random number of kms for the cars.
+	 * If 2 cars are to be written there would be 2 kms values separated by an & symbol.
+	 */
+	
+	private String randomKMs() {
+
+		
+		
+		
+		
+		
+		return null;
+	}
+
+	/**
+	 * Method that generates a random number of cars (1 or 2) and a value of HP for each of them.
+	 * If 2 cars are to be written they would be separated by an @ symbol to simplify the map-reduce technique (1 pair key+value).
+	 */
+	
+	private String randomHps() {
+		
+		String hps = "";
+		
+		
+		
+		
+		return hps;
+	}
+
+	/**
+	 * Method that generates a random date between 01 January 1970 and 01 January 2021
+	 */
+	
+	private String randomDate() {
+
+		int year;
+		int month;
+		int day;
+		String date = "";
+		
+		
+		
+		
+		
+		
+		return date;
+	}
+
+	/**
+	 * Method that generates a random city between Uppsala, Stockholm and Gothenburg
+	 * 
+	 */
+	
+	private String randomCity() {
+
+		String city = "";
+		
+		
+		
+		
+		
+		
+		
+		return city;
+	}
+
+	/**
+	 * Method that prints a record for hybrid car
+	 * @param pw PrintWritter to write in the file
+	 */
+	
+	private void hybridRecord(PrintWriter pw) {
+
+		String type = "H";
+		
+		pw.print(randomCity()+"/"+type+"/"+randomDate()+"/"+randomHybHps()+"/"+randomKMs());
+		
+				
+		
+		
+	}
+	
+	/**
+	 * Method that generates a random number of cars (1 or 2) and a value of HP for each of them taking into account that hybrid cars have 2 engines (i.e. 2 hps).
+	 * If 2 cars are to be written they would be separated by an @ symbol to simplify the map-reduce technique (1 pair key+value).
+	 * As they are hyprid and have 2 hps the 2 values would be concatenated using a + sign.
+	 */
+
+	private String randomHybHps() {
+		
+		String hps = "";
+		
+		
+		
+		
+		return hps;
 	}
 	
 
