@@ -389,7 +389,7 @@ public class InputCreator {
 			monthS = "Mar";
 			break;
 		case 3:
-			monthS = "Aprl";
+			monthS = "Apr";
 			break;
 		case 4:
 			monthS = "May";
