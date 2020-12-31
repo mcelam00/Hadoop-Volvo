@@ -229,11 +229,13 @@ public class InputCreator {
 			int km2 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			
 			if(error == 17) {
-				km = "---";
+				km = "---"+"&"+String.valueOf(km2);
 			
+			}else if(error == 18){
+				km = String.valueOf(km1)+"&"+"---";
+
 			}else {
 				km = String.valueOf(km1)+"&"+String.valueOf(km2);
-
 			}
 		
 		}else {
@@ -269,8 +271,11 @@ public class InputCreator {
 			int h2 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			
 			if(error == 17) {
-				hps = "---";
+				hps = "---"+"@"+String.valueOf(h2);
 			
+			}else if(error == 18){
+				hps = String.valueOf(h1)+"@"+"---";
+
 			}else {
 				
 				hps = String.valueOf(h1)+"@"+String.valueOf(h2);
@@ -325,8 +330,11 @@ public class InputCreator {
 				
 				if(error == 17) { //if there is a simulted error, the date record is null
 					
-					date = "---";
+					date = "---"+"@"+mn2+String.valueOf(year2);
 				
+				}else if(error == 18){
+					date = mn1+String.valueOf(year1)+"@"+"---";
+
 				}else {
 				
 				
@@ -456,7 +464,7 @@ public class InputCreator {
 		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 
 		if(error == 17) {
-			type= "---+---";
+			type= "---";
 		} 
 				
 		//number of cars that this family unit (represented by this record) has
