@@ -88,7 +88,7 @@ public class CarDataRecordParser {
 	  
 	  boolean flag = false;
 	  
-	  for (int i = 0, i < this.horsepowers.length(); i++){ 
+	  for (int i = 0; i < this.horsepowers.length(); i++){ 
 		  
 		  char c = this.horsepowers.charAt(i); //I take char per char and look for the @ 
 		  

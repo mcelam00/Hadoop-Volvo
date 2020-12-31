@@ -111,7 +111,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 									  int pw1 = Integer.parseInt(parser.getHorsePowerCar1());
 									  int pw2 = Integer.parseInt(parser.getHorsePowerCar2());
 									  
-									  int mean = (pw1+pw2)/2
+									  int mean = (pw1+pw2)/2;
 									  
 									  context.write(new Text(parser.getCity()),new IntWritable(mean));
 
@@ -188,7 +188,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 									  int pw1 = Integer.parseInt(parser.hyEffectivePowerCar1());
 									  int pw2 = Integer.parseInt(parser.hyEffectivePowerCar2());
 									  
-									  int mean = (pw1+pw2)/2
+									  int mean = (pw1+pw2)/2;
 									  
 									  context.write(new Text(parser.getCity()),new IntWritable(mean));
 
