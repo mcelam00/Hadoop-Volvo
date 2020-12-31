@@ -185,8 +185,8 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 									  	//second is ok and we pass the mean to the reducer
 							  
 									  	/*We take both cars powers and do the mean*/
-									  int pw1 = Integer.parseInt(parser.hyEffectivePowerCar1());
-									  int pw2 = Integer.parseInt(parser.hyEffectivePowerCar2());
+									  int pw1 = parser.hyEffectivePowerCar1();
+									  int pw2 = parser.hyEffectivePowerCar2();
 									  
 									  int mean = (pw1+pw2)/2;
 									  
@@ -200,7 +200,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 									  //pasa el 1
 									  
 									  
-									  context.write(new Text(parser.getCity()),new IntWritable(Integer.parseInt(parser.hyEffectivePowerCar1())));
+									  context.write(new Text(parser.getCity()),new IntWritable(parser.hyEffectivePowerCar1()));
 
 									  
 									  
@@ -212,7 +212,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 								  //pasa el 1
 								  
 								  
-								  context.write(new Text(parser.getCity()),new IntWritable(Integer.parseInt(parser.hyEffectivePowerCar1())));
+								  context.write(new Text(parser.getCity()),new IntWritable(parser.hyEffectivePowerCar1()));
 
 								  
 								  
@@ -225,7 +225,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 							  if(parser.isAfter2000(parser.getTypeCar2()) == true && parser.isLessThan450000(parser.getTypeCar2()) == true) { 
 								  	//yes
 								  
-								  context.write(new Text(parser.getCity()),new IntWritable(Integer.parseInt(parser.hyEffectivePowerCar2())));
+								  context.write(new Text(parser.getCity()),new IntWritable(parser.hyEffectivePowerCar2()));
  
 								  
 								  
@@ -241,7 +241,7 @@ public class volvoSurveyMapper extends Mapper<LongWritable, Text, Text, IntWrita
 						  if(parser.isAfter2000(parser.getTypeCar2()) == true && parser.isLessThan450000(parser.getTypeCar2()) == true) { 
 							  	//yes
 							  
-							  context.write(new Text(parser.getCity()),new IntWritable(Integer.parseInt(parser.hyEffectivePowerCar2())));
+							  context.write(new Text(parser.getCity()),new IntWritable(parser.hyEffectivePowerCar2()));
  
 							  
 							  

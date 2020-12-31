@@ -22,7 +22,7 @@ public class CarDataRecordParser {
 	  
 	  this.city = holeRecord[0];
 	  
-		  if(areThere2Cars() == true) {	//If there are two cars, both array positions would be created
+		  if(areThere2Cars(holeRecord[3]) == true) {	//If there are two cars, both array positions would be created
 			  
 			  	this.numOfCars = 2; //set the atribute first of all for later methods
 			 
@@ -80,11 +80,11 @@ public class CarDataRecordParser {
   }
 
   /**
-   * It looks for an @ all over the record of the horsspowers and if it finds it, that would mean 2 cars
+   * It looks for an @ all over the record of the horsepowers and if it finds it, that would mean 2 cars
    * @return true if there are 2 cars, false in case just one
    */
   
-  private boolean areThere2Cars() {
+  private boolean areThere2Cars(String horsepowers) {
 	  
 	  boolean flag = false;
 	  
