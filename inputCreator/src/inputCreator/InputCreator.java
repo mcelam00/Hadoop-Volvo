@@ -224,19 +224,29 @@ public class InputCreator {
 		
 		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
-		if(error == 17) {
-			km = "---";
-		
-		}else if(cars == 1) {
+		if(cars == 1) {
 			int km1 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			int km2 = (int) Math.floor(Math.random()*500000);  //random number between 0 and 999999
 			
-			km = String.valueOf(km1)+"&"+String.valueOf(km2);
+			if(error == 17) {
+				km = "---";
+			
+			}else {
+				km = String.valueOf(km1)+"&"+String.valueOf(km2);
+
+			}
 		
 		}else {
 		
 			int km1 = (int) Math.floor(Math.random()*500000);  //random number between 60 and 300
-			km = String.valueOf(km1);
+			
+			if(error == 17) {
+				km = "---";
+			
+			}else {
+				km = String.valueOf(km1);
+
+			}
 		}
 		
 		return km;
@@ -253,23 +263,29 @@ public class InputCreator {
 		
 		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
-		if(error == 17) {
-			hps = "---";
-		
-		}else if(cars == 1) {
+		if(cars == 1) {
 			
 			int h1 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			int h2 = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
 			
+			if(error == 17) {
+				hps = "---";
 			
-			hps = String.valueOf(h1)+"@"+String.valueOf(h2);
-			
+			}else {
+				
+				hps = String.valueOf(h1)+"@"+String.valueOf(h2);
+			}
+				
 		}else {
 			
 			int num = (int) ((Math.random() * (300 - 60)) + 60);  //random number between 60 and 300
-
-			hps = String.valueOf(num);
 			
+			if(error == 17) {
+				hps = "---";
+			
+			}else {
+				hps = String.valueOf(num);
+			}
 		}
 			
 		return hps;
@@ -289,12 +305,6 @@ public class InputCreator {
 		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 		
 		
-		if(error == 17) { //if there is a simulted error, the date record is null
-			date = "---";
-		
-		}else {
-			
-			
 			if(cars == 1) { //if there are 2 cars we need 2 dates
 				
 				/*car 1*/
@@ -313,8 +323,15 @@ public class InputCreator {
 						
 				String mn2 = monthName(month2); //name of the month for car 2
 				
-				date = mn1+String.valueOf(year1)+"@"+mn2+String.valueOf(year2);
+				if(error == 17) { //if there is a simulted error, the date record is null
+					
+					date = "---";
 				
+				}else {
+				
+				
+					date = mn1+String.valueOf(year1)+"@"+mn2+String.valueOf(year2);
+				}
 			
 			}else {
 			
@@ -323,12 +340,18 @@ public class InputCreator {
 				
 				month = (int) Math.floor(Math.random()*12);  //random number between 0 and 11
 		
-				date = monthName(month)+String.valueOf(year);
-		
+				if(error == 17) { //if there is a simulted error, the date record is null
+					
+					date = "---";
+				
+				}else {
+					
+					date = monthName(month)+String.valueOf(year);
+				}
 			
 			}
 		
-		}
+		
 		
 		return date;
 	}
@@ -433,7 +456,7 @@ public class InputCreator {
 		int error = (int) Math.floor(Math.random()*100); // if we get 17 out of 100 possible random numbers it simulates an error in the record. 
 
 		if(error == 17) {
-			type= "---";
+			type= "---+---";
 		} 
 				
 		//number of cars that this family unit (represented by this record) has
