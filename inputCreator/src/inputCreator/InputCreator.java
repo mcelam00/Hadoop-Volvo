@@ -440,7 +440,14 @@ public class InputCreator {
 		
 		int cars = (int) Math.floor(Math.random()*2); 	
 		
-		pw.print(randomCity()+"/"+type+"+"+type+"/"+randomDate(cars)+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
+		if(cars == 1) {
+			pw.print(randomCity()+"/"+type+"+"+type+"/"+randomDate(cars)+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
+
+		}else {
+			pw.print(randomCity()+"/"+type+"/"+randomDate(cars)+"/"+randomHybHps(cars)+"/"+randomKMs(cars));
+
+		}
+		
 
 		
 	}
