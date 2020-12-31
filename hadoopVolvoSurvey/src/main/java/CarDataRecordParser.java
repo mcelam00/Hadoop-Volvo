@@ -27,7 +27,7 @@ public class CarDataRecordParser {
 			  	this.numOfCars = 2; //set the atribute first of all for later methods
 			 
 			  /**TYPES**/
-				 this.type = holeRecord[1].split("+"); //holeRecord[1] would be the String representing the types concatenated by a +; so, we split them and save them likewise we did with the "/"
+				 this.type = holeRecord[1].split("\\+"); //holeRecord[1] would be the String representing the types concatenated by a +; so, we split them and save them likewise we did with the "/"
 			  
 			  /**BUILD DATES**/
 				 this.buildDate = holeRecord[2].split("@");
@@ -84,13 +84,13 @@ public class CarDataRecordParser {
    * @return true if there are 2 cars, false in case just one
    */
   
-  private boolean areThere2Cars(String horsepowers) {
+  private boolean areThere2Cars(String hps) {
 	  
 	  boolean flag = false;
 	  
-	  for (int i = 0; i < this.horsepowers.length(); i++){ 
+	  for (int i = 0; i < hps.length(); i++){ 
 		  
-		  char c = this.horsepowers.charAt(i); //I take char per char and look for the @ 
+		  char c = hps.charAt(i); //I take char per char and look for the @ 
 		  
 		  if(c == '@') {
 			  flag = true;
@@ -233,7 +233,7 @@ public class CarDataRecordParser {
   
   public int hyEffectivePowerCar1() {
 	  
-	  String power[] = this.horsePower[0].split("+");
+	  String power[] = this.horsePower[0].split("\\+");
 	  	
 	  int pw1 = Integer.parseInt(power[0]);
 	  int pw2 = Integer.parseInt(power[1]);
@@ -246,7 +246,7 @@ public class CarDataRecordParser {
   
 public int hyEffectivePowerCar2() {
 	  
-	  String power[] = this.horsePower[1].split("+");
+	  String power[] = this.horsePower[1].split("\\+");
 	  	
 	  int pw1 = Integer.parseInt(power[0]);
 	  int pw2 = Integer.parseInt(power[1]);
